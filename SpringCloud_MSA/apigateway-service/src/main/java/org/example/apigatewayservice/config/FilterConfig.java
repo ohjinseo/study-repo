@@ -10,7 +10,7 @@ public class FilterConfig {
     @Bean
     public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route(r -> r.path("/first-service/**")
+                .route(r -> r.path("/first-service/**") // 서비스로 전달될 때 경로가 유지된다.
                         .filters(f -> f.addRequestHeader("first-request", "first-request-header")
                                 .addResponseHeader("first-response", "first-response-header"))
                         .uri("http://localhost:8081"))
